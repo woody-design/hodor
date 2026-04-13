@@ -5,7 +5,6 @@
 
 Instantly launch your saved prompts into any AI tool. One gesture — edge trigger, keyboard shortcut, or keyword — and your prompt is pasted right where you're typing.
 
-[![Build](https://github.com/woody-design/hodor/actions/workflows/build.yml/badge.svg)](https://github.com/woody-design/hodor/actions/workflows/build.yml)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg?style=flat-square)](LICENSE)
 
 **[hodor.design](https://hodor.design)** — download, learn more

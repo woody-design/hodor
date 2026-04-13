@@ -5,7 +5,6 @@
 
 把你保存的 prompt 一键发送到任何 AI 工具。一个手势——屏幕边缘触发、键盘快捷键或关键词——你的 prompt 就粘贴到了光标所在的位置。
 
-[![Build](https://github.com/woody-design/hodor/actions/workflows/build.yml/badge.svg)](https://github.com/woody-design/hodor/actions/workflows/build.yml)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg?style=flat-square)](LICENSE)
 
 **[hodor.design](https://hodor.design)** — 下载和了解更多
