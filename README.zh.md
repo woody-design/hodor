@@ -10,7 +10,7 @@
 
 **[hodor.design](https://hodor.design)** — 下载和了解更多
 
-https://github.com/woody-design/hodor/raw/main/media/demo.mp4
+https://github.com/user-attachments/assets/3f64ef62-21f2-4b41-bf66-acd33f1fbe8e
 
 ## Hodor 做什么
 
