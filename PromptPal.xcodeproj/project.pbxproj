@@ -1,0 +1,468 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		06A99CDACE272161BD2E2DB7 /* SortMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AF0D3311A603AB0E2671CD /* SortMode.swift */; };
+		158F5F9F354FA87E23FBB1A3 /* PromptFormMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45DB8542FBC4CAEEF4E1F98 /* PromptFormMode.swift */; };
+		1CAB2FE6A7DCF2D5CA125F70 /* ToastWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66E5EFE73F4902C6A35C729 /* ToastWindow.swift */; };
+		328DA95D3E639E33FD76BC64 /* DimmingWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE605308C4022F272DA3EF8 /* DimmingWindow.swift */; };
+		38846D9C7C818876A2FF8B3F /* PromptPalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A091991ADA722FAEA3B62B /* PromptPalApp.swift */; };
+		3ADA191C725192F949683609 /* SidebarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDED9CC94C3D7BCC9A284E3A /* SidebarManager.swift */; };
+		423B129E2987A1FAE288585E /* DialogWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4D282378E839DBD7BFC3E8 /* DialogWindow.swift */; };
+		440FB9DA3C63DF121B9A9525 /* ButtonAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F63A97342154F42AD5C4C44 /* ButtonAddView.swift */; };
+		4788C3E341B97A7B5D059D14 /* PromptCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC7A8FD61D9C7B1B2277FB9 /* PromptCardView.swift */; };
+		4FFD4291D723EAF03ED12601 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF93AACE225217B6AFCCAD /* AppDelegate.swift */; };
+		54AD5117867A8EEE5A41E7E3 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5174DD7C8910C359C4662738 /* OnboardingView.swift */; };
+		579E1FA2C802E91F14C92286 /* HodorIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = CB73E1F9C1ED13798B35D83A /* HodorIcon.icon */; };
+		6D728D74489C3C5821DEBC05 /* SortPopUpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204BD6F39B625E7BBCA5205F /* SortPopUpButton.swift */; };
+		74655E2FFFF2743BFBD45C46 /* HotkeyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518358360BCAD476B1F186F6 /* HotkeyService.swift */; };
+		84FFD76693D25C7E3D92D390 /* AutoPasteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2916ABD103BC36BF56D06649 /* AutoPasteService.swift */; };
+		8CDAF1C91A7DF7D929316788 /* PreviousAppTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D9EF1BF4A16AE8C4BADCCAF /* PreviousAppTracker.swift */; };
+		93B6BC6C14D751730D9AED97 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3E02C16751F0E448B8E703 /* SettingsView.swift */; };
+		987339E33B737CE59F7E22FD /* PromptNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8507579C71364428CD4306 /* PromptNote.swift */; };
+		9B44519DBB701DCBFF5D09E8 /* OnboardingWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE4061B5025AF3E5936DB3F /* OnboardingWindow.swift */; };
+		B1938A9E5D3910D82ED3CED0 /* DialogWindowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4027196766D917BE2132AEB /* DialogWindowDelegate.swift */; };
+		B4BD6B9549C9690A6AFFE6A8 /* SeedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73A60204594D4F83E88EF34 /* SeedData.swift */; };
+		C8AD3708151B4268958CD3CD /* PermissionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81576AC545C6A92D5E53B87F /* PermissionService.swift */; };
+		CAEB1331BDA92389386B470E /* SidebarPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B2AEC37804B43B7354E633 /* SidebarPanel.swift */; };
+		CF7C59927F8E8FDCE503A250 /* PromptFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A060F6F5CBBBFC7B4EE227 /* PromptFormView.swift */; };
+		D75B30B28297E039A5020530 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CBD92C90761F09E0A76DC1 /* ToastView.swift */; };
+		E308BF04A8CE35A7615D3818 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205BC8C771A7536F8AD37DE9 /* HeaderView.swift */; };
+		E48EDCEE2B191ED8D1E9281C /* ScreenEdgeTriggerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2886E6C6180FC26665869BD4 /* ScreenEdgeTriggerService.swift */; };
+		FFBD9B3F7F09164AE3D95955 /* SidebarContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6663DD244C0DD3DD17808E49 /* SidebarContentView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1A3E02C16751F0E448B8E703 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		1DC7A8FD61D9C7B1B2277FB9 /* PromptCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptCardView.swift; sourceTree = "<group>"; };
+		204BD6F39B625E7BBCA5205F /* SortPopUpButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortPopUpButton.swift; sourceTree = "<group>"; };
+		205BC8C771A7536F8AD37DE9 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		2886E6C6180FC26665869BD4 /* ScreenEdgeTriggerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenEdgeTriggerService.swift; sourceTree = "<group>"; };
+		2916ABD103BC36BF56D06649 /* AutoPasteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoPasteService.swift; sourceTree = "<group>"; };
+		5174DD7C8910C359C4662738 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		518358360BCAD476B1F186F6 /* HotkeyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotkeyService.swift; sourceTree = "<group>"; };
+		51CBD92C90761F09E0A76DC1 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
+		6663DD244C0DD3DD17808E49 /* SidebarContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarContentView.swift; sourceTree = "<group>"; };
+		6D9EF1BF4A16AE8C4BADCCAF /* PreviousAppTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousAppTracker.swift; sourceTree = "<group>"; };
+		81576AC545C6A92D5E53B87F /* PermissionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionService.swift; sourceTree = "<group>"; };
+		84DF93AACE225217B6AFCCAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8506EC80D7D70B741C38120A /* PromptPal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PromptPal.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F63A97342154F42AD5C4C44 /* ButtonAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonAddView.swift; sourceTree = "<group>"; };
+		92B2AEC37804B43B7354E633 /* SidebarPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarPanel.swift; sourceTree = "<group>"; };
+		A1AF0D3311A603AB0E2671CD /* SortMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortMode.swift; sourceTree = "<group>"; };
+		BDED9CC94C3D7BCC9A284E3A /* SidebarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarManager.swift; sourceTree = "<group>"; };
+		C7A091991ADA722FAEA3B62B /* PromptPalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptPalApp.swift; sourceTree = "<group>"; };
+		CB73E1F9C1ED13798B35D83A /* HodorIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = wrapper.icon; path = HodorIcon.icon; sourceTree = "<group>"; };
+		CEE605308C4022F272DA3EF8 /* DimmingWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimmingWindow.swift; sourceTree = "<group>"; };
+		CF8507579C71364428CD4306 /* PromptNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptNote.swift; sourceTree = "<group>"; };
+		D4027196766D917BE2132AEB /* DialogWindowDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogWindowDelegate.swift; sourceTree = "<group>"; };
+		D73A60204594D4F83E88EF34 /* SeedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedData.swift; sourceTree = "<group>"; };
+		E45DB8542FBC4CAEEF4E1F98 /* PromptFormMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptFormMode.swift; sourceTree = "<group>"; };
+		E66E5EFE73F4902C6A35C729 /* ToastWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastWindow.swift; sourceTree = "<group>"; };
+		ECE4061B5025AF3E5936DB3F /* OnboardingWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingWindow.swift; sourceTree = "<group>"; };
+		EE4D282378E839DBD7BFC3E8 /* DialogWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogWindow.swift; sourceTree = "<group>"; };
+		F8A060F6F5CBBBFC7B4EE227 /* PromptFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptFormView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		0466615C20E780A5B46435D0 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				2916ABD103BC36BF56D06649 /* AutoPasteService.swift */,
+				518358360BCAD476B1F186F6 /* HotkeyService.swift */,
+				81576AC545C6A92D5E53B87F /* PermissionService.swift */,
+				6D9EF1BF4A16AE8C4BADCCAF /* PreviousAppTracker.swift */,
+				2886E6C6180FC26665869BD4 /* ScreenEdgeTriggerService.swift */,
+				BDED9CC94C3D7BCC9A284E3A /* SidebarManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		21061D6B2CC609994E651153 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				8F63A97342154F42AD5C4C44 /* ButtonAddView.swift */,
+				205BC8C771A7536F8AD37DE9 /* HeaderView.swift */,
+				1DC7A8FD61D9C7B1B2277FB9 /* PromptCardView.swift */,
+				204BD6F39B625E7BBCA5205F /* SortPopUpButton.swift */,
+				51CBD92C90761F09E0A76DC1 /* ToastView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		56CA15D9044C5F36967F950F /* Windows */ = {
+			isa = PBXGroup;
+			children = (
+				EE4D282378E839DBD7BFC3E8 /* DialogWindow.swift */,
+				D4027196766D917BE2132AEB /* DialogWindowDelegate.swift */,
+				CEE605308C4022F272DA3EF8 /* DimmingWindow.swift */,
+				ECE4061B5025AF3E5936DB3F /* OnboardingWindow.swift */,
+				92B2AEC37804B43B7354E633 /* SidebarPanel.swift */,
+				E66E5EFE73F4902C6A35C729 /* ToastWindow.swift */,
+			);
+			path = Windows;
+			sourceTree = "<group>";
+		};
+		6358D3DBED65EA8A2A735803 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8506EC80D7D70B741C38120A /* PromptPal.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		90EC2D6157CFDC4A0F4358A2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				21061D6B2CC609994E651153 /* Components */,
+				BCCC18F2DBEB34E3610B509C /* Screens */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A4AB956FE5E56C7F85DAD6DF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E45DB8542FBC4CAEEF4E1F98 /* PromptFormMode.swift */,
+				CF8507579C71364428CD4306 /* PromptNote.swift */,
+				D73A60204594D4F83E88EF34 /* SeedData.swift */,
+				A1AF0D3311A603AB0E2671CD /* SortMode.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BCCC18F2DBEB34E3610B509C /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				5174DD7C8910C359C4662738 /* OnboardingView.swift */,
+				F8A060F6F5CBBBFC7B4EE227 /* PromptFormView.swift */,
+				1A3E02C16751F0E448B8E703 /* SettingsView.swift */,
+				6663DD244C0DD3DD17808E49 /* SidebarContentView.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		CFD7DDCC87F0CDB988D20FFF /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				A4AB956FE5E56C7F85DAD6DF /* Models */,
+				0466615C20E780A5B46435D0 /* Services */,
+				90EC2D6157CFDC4A0F4358A2 /* Views */,
+				56CA15D9044C5F36967F950F /* Windows */,
+				84DF93AACE225217B6AFCCAD /* AppDelegate.swift */,
+				C7A091991ADA722FAEA3B62B /* PromptPalApp.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		D478D7DE478548DC6A0ADC34 = {
+			isa = PBXGroup;
+			children = (
+				CFD7DDCC87F0CDB988D20FFF /* Sources */,
+				CB73E1F9C1ED13798B35D83A /* HodorIcon.icon */,
+				6358D3DBED65EA8A2A735803 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		86E9679C9755FABA7ECC875E /* PromptPal */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5CEEF8CD969159A661E5F728 /* Build configuration list for PBXNativeTarget "PromptPal" */;
+			buildPhases = (
+				733376B23BE0ECA2D88F2AD9 /* Sources */,
+				3080599E00162E388EC0DB99 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PromptPal;
+			packageProductDependencies = (
+			);
+			productName = PromptPal;
+			productReference = 8506EC80D7D70B741C38120A /* PromptPal.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8AFD75DA94F398C3D11E5E9A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					86E9679C9755FABA7ECC875E = {
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 7527F9155F933F0FBFEC2E85 /* Build configuration list for PBXProject "PromptPal" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = D478D7DE478548DC6A0ADC34;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 6358D3DBED65EA8A2A735803 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				86E9679C9755FABA7ECC875E /* PromptPal */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3080599E00162E388EC0DB99 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				579E1FA2C802E91F14C92286 /* HodorIcon.icon in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		733376B23BE0ECA2D88F2AD9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4FFD4291D723EAF03ED12601 /* AppDelegate.swift in Sources */,
+				84FFD76693D25C7E3D92D390 /* AutoPasteService.swift in Sources */,
+				440FB9DA3C63DF121B9A9525 /* ButtonAddView.swift in Sources */,
+				423B129E2987A1FAE288585E /* DialogWindow.swift in Sources */,
+				B1938A9E5D3910D82ED3CED0 /* DialogWindowDelegate.swift in Sources */,
+				328DA95D3E639E33FD76BC64 /* DimmingWindow.swift in Sources */,
+				E308BF04A8CE35A7615D3818 /* HeaderView.swift in Sources */,
+				74655E2FFFF2743BFBD45C46 /* HotkeyService.swift in Sources */,
+				54AD5117867A8EEE5A41E7E3 /* OnboardingView.swift in Sources */,
+				9B44519DBB701DCBFF5D09E8 /* OnboardingWindow.swift in Sources */,
+				C8AD3708151B4268958CD3CD /* PermissionService.swift in Sources */,
+				8CDAF1C91A7DF7D929316788 /* PreviousAppTracker.swift in Sources */,
+				4788C3E341B97A7B5D059D14 /* PromptCardView.swift in Sources */,
+				158F5F9F354FA87E23FBB1A3 /* PromptFormMode.swift in Sources */,
+				CF7C59927F8E8FDCE503A250 /* PromptFormView.swift in Sources */,
+				987339E33B737CE59F7E22FD /* PromptNote.swift in Sources */,
+				38846D9C7C818876A2FF8B3F /* PromptPalApp.swift in Sources */,
+				E48EDCEE2B191ED8D1E9281C /* ScreenEdgeTriggerService.swift in Sources */,
+				B4BD6B9549C9690A6AFFE6A8 /* SeedData.swift in Sources */,
+				93B6BC6C14D751730D9AED97 /* SettingsView.swift in Sources */,
+				FFBD9B3F7F09164AE3D95955 /* SidebarContentView.swift in Sources */,
+				3ADA191C725192F949683609 /* SidebarManager.swift in Sources */,
+				CAEB1331BDA92389386B470E /* SidebarPanel.swift in Sources */,
+				06A99CDACE272161BD2E2DB7 /* SortMode.swift in Sources */,
+				6D728D74489C3C5821DEBC05 /* SortPopUpButton.swift in Sources */,
+				D75B30B28297E039A5020530 /* ToastView.swift in Sources */,
+				1CAB2FE6A7DCF2D5CA125F70 /* ToastWindow.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		3D7E811D43723C5D2AECE20D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		60EC836AF2C706B588D868A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = HodorIcon;
+				CODE_SIGN_ENTITLEMENTS = Resources/PromptPal.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 6;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hodor.design;
+				PRODUCT_NAME = Hodor;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
+		797ED7B8EA76D90D67A4929A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = HodorIcon;
+				CODE_SIGN_ENTITLEMENTS = Resources/PromptPal.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 6;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hodor.design;
+				PRODUCT_NAME = Hodor;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+		B92628B57FE786D693781F70 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5CEEF8CD969159A661E5F728 /* Build configuration list for PBXNativeTarget "PromptPal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				797ED7B8EA76D90D67A4929A /* Debug */,
+				60EC836AF2C706B588D868A2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		7527F9155F933F0FBFEC2E85 /* Build configuration list for PBXProject "PromptPal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B92628B57FE786D693781F70 /* Debug */,
+				3D7E811D43723C5D2AECE20D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8AFD75DA94F398C3D11E5E9A /* Project object */;
+}

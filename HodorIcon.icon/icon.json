@@ -1,0 +1,86 @@
+{
+  "fill" : {
+    "automatic-gradient" : "extended-gray:1.00000,1.00000"
+  },
+  "groups" : [
+    {
+      "blur-material" : 0.5,
+      "layers" : [
+        {
+          "glass" : false,
+          "image-name" : "noun-helicopter-5275381.svg",
+          "name" : "noun-helicopter-5275381",
+          "position" : {
+            "scale" : 1,
+            "translation-in-points" : [
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "fill-specializations" : [
+            {
+              "appearance" : "dark",
+              "value" : {
+                "solid" : "srgb:1.00000,1.00000,1.00000,1.00000"
+              }
+            },
+            {
+              "appearance" : "tinted",
+              "value" : {
+                "solid" : "extended-srgb:0.00000,0.53333,1.00000,1.00000"
+              }
+            }
+          ],
+          "hidden" : true,
+          "image-name" : "H9.svg",
+          "name" : "H9",
+          "position" : {
+            "scale" : 1.01,
+            "translation-in-points" : [
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "fill-specializations" : [
+            {
+              "appearance" : "dark",
+              "value" : {
+                "solid" : "srgb:1.00000,1.00000,1.00000,1.00000"
+              }
+            },
+            {
+              "appearance" : "tinted",
+              "value" : {
+                "solid" : "extended-srgb:0.00000,0.53333,1.00000,1.00000"
+              }
+            }
+          ],
+          "glass" : true,
+          "hidden" : true,
+          "image-name" : "Hodor_2.svg",
+          "name" : "Hodor_2"
+        }
+      ],
+      "lighting" : "individual",
+      "shadow" : {
+        "kind" : "neutral",
+        "opacity" : 0.5
+      },
+      "specular" : true,
+      "translucency" : {
+        "enabled" : true,
+        "value" : 0.1
+      }
+    }
+  ],
+  "supported-platforms" : {
+    "circles" : [
+      "watchOS"
+    ],
+    "squares" : "shared"
+  }
+}

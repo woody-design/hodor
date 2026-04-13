@@ -1,0 +1,14 @@
+// Local developer overrides — NOT checked into version control.
+// Copy this file to Local.xcconfig and fill in your values.
+//
+//   cp Local.xcconfig.template Local.xcconfig
+//
+// Xcode will pick these up automatically via the base configuration
+// reference in the project file. Do not commit Local.xcconfig.
+
+// Your Apple Developer Team ID (Xcode → Signing & Capabilities → Team)
+DEVELOPMENT_TEAM =
+
+// Signing identity — use "Apple Development" for local builds,
+// "Developer ID Application" for distribution.
+CODE_SIGN_IDENTITY = Apple Development

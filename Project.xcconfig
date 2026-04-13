@@ -1,0 +1,4 @@
+// Shared build settings for all configurations.
+// Local developer overrides (signing, team) go in Local.xcconfig (gitignored).
+// The #include? directive silently skips the file when it does not exist.
+#include? "Local.xcconfig"
