@@ -1,63 +1,81 @@
-[![English](https://img.shields.io/badge/English-454545?style=flat-square)](README.md)
-[![简体中文](https://img.shields.io/badge/简体中文-454545?style=flat-square)](README.zh.md)
+[English](README.md)
+[简体中文](README.zh.md)
 
 # Hodor
 
-把你保存的 prompt 一键发送到任何 AI 工具。一个手势——屏幕边缘触发、键盘快捷键或关键词——你的 prompt 就粘贴到了光标所在的位置。
+轻量化 AI prompt 管理与启动工具。macOS 26+（liquid glass）
 
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg?style=flat-square)](LICENSE)
+每天都在用 AI，prompt 越攒越多。放在备忘录里找不到，放在文档里改不动，每次都得从同一个地方复制粘贴。Hodor 就做一件事：一个地方集中存，一个动作粘贴到任何 AI 工具里。
 
-**[hodor.design](https://hodor.design)** — 下载和了解更多
+[License: GPL v3](LICENSE)
 
-https://github.com/user-attachments/assets/3f64ef62-21f2-4b41-bf66-acd33f1fbe8e
+免费开源 · 完全本地，无网络请求
 
-## Hodor 做什么
+**[hodor.design](https://hodor.design)** — 下载和演示
 
-- **屏幕边缘触发** — 把光标移到屏幕边缘，浏览你的 prompt 列表，点击即粘贴。
-- **键盘快捷键** — 给任意 prompt 分配 A–Z 的字母。按下 `Ctrl+Opt+R`，prompt 立即粘贴。
-- **关键词展开** — 设置一个关键词，比如 `;git`。在任何地方输入它，prompt 就会原地出现。
+[https://github.com/user-attachments/assets/3f64ef62-21f2-4b41-bf66-acd33f1fbe8e](https://github.com/user-attachments/assets/3f64ef62-21f2-4b41-bf66-acd33f1fbe8e)
 
-三种方式做同一件事：把你保存的 prompt 送到光标，快。
+- [三种使用方式](#三种使用方式)
+- [设计选择](#设计选择)
+- [安装](#安装)
+- [常见问题](#常见问题)
+- [设计初衷](#设计初衷)
 
-## 设计决策
+## 三种使用方式
 
-**一切都在你的机器上。** 整个代码库没有任何网络请求——没有分析、没有遥测、没有更新检查。你的 prompt 永远不会离开你的 Mac。你可以验证：在源码里搜索 `URLSession`——它不存在。
+- **屏幕边缘** — 鼠标滑到屏幕边缘，弹出 prompt 列表，点击即粘贴。也可以按 `Ctrl+Opt+Space` 打开侧边栏。
+- **快捷键** — 给任意 prompt 分配一个字母 A-Z。按 `Ctrl+Opt+A-Z`，直接粘贴。
+- **关键词** — 设一个关键词，比如 `;kit`。在任何地方输入，prompt 原地替换。
 
-**原生 macOS，不是 Electron。** Hodor 使用 SwiftUI 和 SwiftData 构建。没有 web view，没有打包的浏览器。应用只有几 MB，不是几百 MB。
+三种方式做同一件事：把 prompt 送到当前输入框——如果没有聚焦的输入框，就复制到剪贴板。侧边栏适合浏览，快捷键和关键词让你不用离开键盘。
 
-**Accessibility 权限——仅此而已。** Hodor 使用 `CGEvent` 向其他应用粘贴内容，和 Raycast、Alfred 的方式一样。源代码就在这里——你可以看到它做了什么、没做什么。
+## 设计选择
 
-**以 GPL v3 开源。** 每一行代码都是公开的。如果 Hodor 能访问你的 prompt，你应该能验证它对你的数据做了什么。
+- **所有数据都在你的电脑上。** prompt 不会离开你的 Mac。整个代码库没有任何网络请求——不做分析，不做遥测，不检查更新。不弹通知，引导流程做到最简——打开就能用，用完关掉就好。
+- **原生 macOS，不是 Electron。** SwiftUI + SwiftData 构建。没有 web view，没有打包的浏览器。整个 app 640 KB。
+- **只需要辅助功能权限。** Hodor 用 macOS 辅助功能 API 向其他 app 粘贴内容——和 Raycast、Alfred 同样的方式。源码就在这里，做了什么、没做什么，一看便知。
+- **免费开源。** 一个完全本地、没有运营成本的小工具，作者认为应该免费。所有代码以 GPL v3 公开。
 
 ## 安装
 
 从 **[hodor.design](https://hodor.design)** 下载最新 DMG。需要 macOS 26 或更高版本。
 
-## 从源码构建
+## 常见问题
 
-前置条件：[Xcode](https://developer.apple.com/xcode/)，需包含 macOS 26 SDK。
+### 为什么需要辅助功能权限？
 
-```bash
-git clone https://github.com/woody-design/hodor.git
-cd hodor
-```
+Hodor 通过 macOS 辅助功能 API 模拟 Cmd+V，向其他 app 粘贴 prompt。同一个权限也用于检测快捷键（`Ctrl+Opt` + 字母）和关键词输入。仅此而已——Hodor 不记录按键、不读取屏幕内容、不访问其他 app 的数据。
 
-设置代码签名：
-```bash
-cp Local.xcconfig.template Local.xcconfig
-# 编辑 Local.xcconfig — 填入你的 DEVELOPMENT_TEAM
-```
+### 点了 prompt 但没有粘贴。
 
-在 Xcode 中打开 `PromptPal.xcodeproj`，然后 build and run。
+prompt 已经在剪贴板了，手动 Cmd+V 即可。通常是因为目标 app 的输入框没有获得焦点。
 
-> 项目使用 [XcodeGen](https://github.com/yonaskolb/XcodeGen) 从 `project.yml` 生成 Xcode 项目。生成的 `.xcodeproj` 已提交到 repo，所以你不需要安装 XcodeGen 来构建——只有在修改项目结构时才需要。
+### 侧边栏和快捷键有什么区别？
+
+侧边栏用来浏览：看一看，点一下，不用记任何东西。快捷键（`Ctrl+Opt` + 字母）和关键词（`;kit`）适合正在打字的时候：prompt 直接出现在输入框里，手不用离开键盘。
+
+### 关键词怎么设比较好？
+
+用符号开头：`;kit`、`/reply`、`.git`。这样打普通单词的时候不会误触发。Hodor 自带四个示例 prompt，展示了这个用法。注意：互为前缀的关键词不能共存（`;ki` 和 `;kit` 会冲突）。
+
+### `Ctrl+Opt+Space` 和输入法切换冲突了。
+
+这是一个已知冲突。如果你使用中英文输入法切换，macOS 很可能已经占用了这个快捷键。建议在系统设置 → 键盘 → 输入法中，把切换快捷键改成 `Ctrl+Space` 或 Caps Lock。自定义全局快捷键可能会在未来版本支持。
+
+### 我的数据存在哪里？
+
+所有 prompt 都存在本地，使用 SwiftData，路径是 `~/Library/Application Support/default.store`。不同步，不上传，不发送。
+
+## 设计初衷
+
+我每天都在用 AI 工具，prompt 越攒越多。Raycast snippets 里一些，备忘录里一些，Notion 里一些，还有个文档越写越长。我就想要一个地方集中存，一次点击就能用。开发前给自己定了个标准：能不能让我真的放弃 Raycast 原来的 snippet 方案？我觉得我做到了。
 
 ## 反馈
 
-- **Bug 报告** — [提交 issue](https://github.com/woody-design/hodor/issues/new/choose)
+- **Bug 反馈** — [提交 issue](https://github.com/woody-design/hodor/issues/new/choose)
 - **功能建议** — [发起讨论](https://github.com/woody-design/hodor/discussions/new?category=ideas) — 为你想要的功能投票
 - **提问** — [在讨论区提问](https://github.com/woody-design/hodor/discussions/new?category=q-a)
 
 ## 许可证
 
-[GPL v3](LICENSE) — 由 [Woody](https://woodydesign.io/) 设计于纽约。
+[GPL v3](LICENSE) — Designed by [Woody](https://woodydesign.io/) in NY
