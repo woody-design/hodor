@@ -83,4 +83,4 @@ I work with AI tools every day and kept a growing collection of prompts — scat
 
 ## License
 
-[GPL v3](LICENSE) — Designed by [Woody](https://woodydesign.io/) in NY.
+[GPL v3](LICENSE) — Designed by [Woody](https://woodydesign.io/) in NY
