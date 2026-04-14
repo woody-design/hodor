@@ -1,4 +1,4 @@
-[English](README.md)
+[English](https://github.com/woody-design/hodor)
 [简体中文](README.zh.md)
 
 # Hodor
