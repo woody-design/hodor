@@ -9,9 +9,9 @@ You have prompts worth keeping — saved in notes, buried in docs, copy-pasted f
 
 Hodor gives you one place to save them and one gesture to paste them into any AI tool. Your AI prompt workflow deserves its own app. 
 
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg?style=flat-square)](LICENSE)
-
 Free and open source · All local, no network
+
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg?style=flat-square)](LICENSE)
 
 **[hodor.design](https://hodor.design)** — download and demo
 
