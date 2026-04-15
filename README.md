@@ -21,8 +21,6 @@ https://github.com/user-attachments/assets/3f64ef62-21f2-4b41-bf66-acd33f1fbe8e
 - [FAQ](#faq)
 - [Why I Built This](#why-i-built-this)
 
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg?style=flat-square)](LICENSE)
-
 ## Three Ways to Use It
 
 - **Screen edge** — Slide to the screen edge. Browse your prompts, click to paste. (Or press `Ctrl+Opt+Space` to open from the keyboard.)
@@ -84,5 +82,7 @@ I work with AI tools every day and kept a growing collection of prompts — scat
 - **Questions** — [ask in discussions](https://github.com/woody-design/hodor/discussions/new?category=q-a)
 
 ## License
+
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg?style=flat-square)](LICENSE)
 
 [GPL v3](LICENSE) — Designed by [Woody](https://woodydesign.io/) in NY
