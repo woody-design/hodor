@@ -3,13 +3,14 @@
 
 # Hodor
 
-轻量化 AI prompt 管理与启动工具。macOS 26+（liquid glass）。你的专属AI工作流工具。
+轻量的 prompt 启动器，专为你的 AI 工作流。
 
-每天都在用 AI，prompt 越攒越多。放在备忘录里找不到，放在文档里改不动，每次都得从同一个地方复制粘贴。Hodor 就做一件事：一个地方集中存，一个动作粘贴到任何 AI 工具里。
+每天都在用 AI，prompt 越攒越多。放在备忘录里找不到，放在文档里改不动，每次都得从同一个地方复制粘贴。
+Hodor 就做一件事：一个地方集中存，一个动作粘贴到任何 AI 工具里。
+
+免费开源 · 完全本地，无网络请求 · macOS 26+（liquid glass）
 
 [License: GPL v3](LICENSE)
-
-免费开源 · 完全本地，无网络请求
 
 **[hodor.design](https://hodor.design)** — 下载和演示
 
