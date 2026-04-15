@@ -3,9 +3,11 @@
 
 # Hodor
 
-A lightweight prompt launcher for macOS 26+ (liquid glass). Your AI prompt workflow deserves its own app. 
+A lightweight prompt launcher for macOS 26+ (liquid glass). 
 
 You have prompts worth keeping — saved in notes, buried in docs, copy-pasted from the same place every time. Hodor gives you one place to save them and one gesture to paste them into any AI tool.
+
+Your AI prompt workflow deserves its own app. 
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg?style=flat-square)](LICENSE)
 
