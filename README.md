@@ -15,13 +15,13 @@ Free and open source · All local, no network
 
 https://github.com/user-attachments/assets/3f64ef62-21f2-4b41-bf66-acd33f1fbe8e
 
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg?style=flat-square)](LICENSE)
-
 - [Three Ways to Use It](#three-ways-to-use-it)
 - [Design Choices](#design-choices)
 - [Install](#install)
 - [FAQ](#faq)
 - [Why I Built This](#why-i-built-this)
+
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg?style=flat-square)](LICENSE)
 
 ## Three Ways to Use It
 
