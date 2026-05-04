@@ -17,7 +17,7 @@ final class PromptStorageService {
             withIntermediateDirectories: true
         )
 
-        try migrateLegacyStoreIfNeeded()
+        migrateLegacyStoreIfNeeded()
 
         do {
             return try makeContainer(at: currentStoreURL)
@@ -61,7 +61,7 @@ final class PromptStorageService {
 
     // MARK: - Migration
 
-    private func migrateLegacyStoreIfNeeded() throws {
+    private func migrateLegacyStoreIfNeeded() {
         let defaults = UserDefaults.standard
         guard !defaults.bool(forKey: migrationCompleteKey) else { return }
         guard !storeFileExists(for: currentStoreURL) else {
@@ -71,36 +71,64 @@ final class PromptStorageService {
         guard storeFileExists(for: legacyStoreURL) else { return }
 
         logger.info("Migrating legacy default SwiftData store to explicit Hodor store path")
-        try copyStoreFiles(
-            for: legacyStoreURL,
-            to: storeBackupsDirectory.appendingPathComponent(
-                "pre-explicit-store-migration-\(Self.snapshotFormatter.string(from: Date()))",
-                isDirectory: true
-            )
-        )
 
-        let legacyContainer = try makeContainer(at: legacyStoreURL, allowsSave: false)
-        let legacyPrompts = try fetchPrompts(from: legacyContainer)
+        let legacyPrompts: [PromptNote]
+        do {
+            let legacyContainer = try makeContainer(at: legacyStoreURL, allowsSave: false)
+            legacyPrompts = try fetchPrompts(from: legacyContainer)
+        } catch {
+            logger.warning("Skipping unreadable legacy default.store: \(error.localizedDescription)")
+            defaults.set(true, forKey: migrationCompleteKey)
+            return
+        }
+
         guard !legacyPrompts.isEmpty else {
             defaults.set(true, forKey: migrationCompleteKey)
             return
         }
 
-        let newContainer = try makeContainer(at: currentStoreURL)
-        for prompt in legacyPrompts {
-            newContainer.mainContext.insert(copyPrompt(prompt))
+        do {
+            try copyStoreFiles(
+                for: legacyStoreURL,
+                to: storeBackupsDirectory.appendingPathComponent(
+                    "pre-explicit-store-migration-\(Self.snapshotFormatter.string(from: Date()))",
+                    isDirectory: true
+                )
+            )
+
+            let newContainer = try makeContainer(at: currentStoreURL)
+            for prompt in legacyPrompts {
+                newContainer.mainContext.insert(copyPrompt(prompt))
+            }
+            do {
+                try newContainer.mainContext.save()
+            } catch {
+                newContainer.mainContext.rollback()
+                throw error
+            }
+            defaults.set(true, forKey: migrationCompleteKey)
+            PromptBackupService.shared.captureCurrentLibraryIfPresent(context: newContainer.mainContext)
+            logger.info("Migrated \(legacyPrompts.count) prompts to explicit Hodor store path")
+        } catch {
+            logger.error("Failed to migrate readable legacy default.store: \(error.localizedDescription)")
+            moveCurrentStoreAsideAfterFailedMigration()
         }
+    }
+
+    private func moveCurrentStoreAsideAfterFailedMigration() {
+        guard storeFileExists(for: currentStoreURL) else { return }
 
         do {
-            try newContainer.mainContext.save()
+            try moveStoreFiles(
+                for: currentStoreURL,
+                to: storeBackupsDirectory.appendingPathComponent(
+                    "failed-legacy-migration-\(Self.snapshotFormatter.string(from: Date()))",
+                    isDirectory: true
+                )
+            )
         } catch {
-            newContainer.mainContext.rollback()
-            throw error
+            logger.error("Failed to move partial migrated store aside: \(error.localizedDescription)")
         }
-
-        defaults.set(true, forKey: migrationCompleteKey)
-        PromptBackupService.shared.captureCurrentLibraryIfPresent(context: newContainer.mainContext)
-        logger.info("Migrated \(legacyPrompts.count) prompts to explicit Hodor store path")
     }
 
     private func makeContainer(at storeURL: URL, allowsSave: Bool = true) throws -> ModelContainer {

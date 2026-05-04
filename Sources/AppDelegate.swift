@@ -33,7 +33,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         _ = PreviousAppTracker.shared
 
         registerDefaults()
-        setupModelContainer()
+        guard setupModelContainer() else { return }
 
         // Permission gate — skip event tap to avoid triggering system dialog before onboarding
         PermissionService.shared.check(tryEventTap: false)
@@ -94,12 +94,25 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         ])
     }
 
-    private func setupModelContainer() {
+    private func setupModelContainer() -> Bool {
         do {
             modelContainer = try PromptStorageService.shared.makeModelContainer()
+            return true
         } catch {
-            fatalError("Failed to create ModelContainer: \(error)")
+            logger.fault("Failed to create ModelContainer: \(error.localizedDescription)")
+            showStorageStartupFailure(error)
+            return false
         }
+    }
+
+    private func showStorageStartupFailure(_: Error) {
+        let alert = NSAlert()
+        alert.messageText = "Hodor couldn't open its local storage"
+        alert.informativeText = "Your prompt files were left untouched. Please restart Hodor or contact support if this keeps happening."
+        alert.alertStyle = .critical
+        alert.addButton(withTitle: "Quit")
+        alert.runModal()
+        NSApp.terminate(nil)
     }
 
     // MARK: - Onboarding
