@@ -3,17 +3,18 @@
 
 # Hodor
 
-A lightweight prompt launcher for your AI workflow.
+Instantly launch your saved prompts into any AI tool.
 
 You have prompts worth keeping — saved in notes, buried in docs, copy-pasted from the same place every time. Hodor gives you one place to save them and one gesture to paste them into any AI tool.
 
-Free and open source · All local, no network · macOS 26+ (liquid glass)
+Free and open source · All local, no network · Native macOS
 
 **[hodor.design](https://hodor.design)** — download and demo
 
 https://github.com/user-attachments/assets/3f64ef62-21f2-4b41-bf66-acd33f1fbe8e
 
 - [Three Ways to Use It](#three-ways-to-use-it)
+- [Settings](#settings)
 - [Design Choices](#design-choices)
 - [Install](#install)
 - [FAQ](#faq)
@@ -27,13 +28,22 @@ https://github.com/user-attachments/assets/3f64ef62-21f2-4b41-bf66-acd33f1fbe8e
 
 All three get your prompt into the active text field — or onto your clipboard if nothing is focused. The sidebar is for browsing. Shortcuts and keywords keep your hands on the keyboard.
 
+## Settings
+
+Hodor keeps settings intentionally small:
+
+- **Sidebar position** — place the sidebar on the left or right edge.
+- **Screen edge trigger** — turn edge activation on or off.
+- **Display** — follow the focused screen or pin Hodor to a specific display.
+- **Appearance** — use system, light, or dark mode.
+
 ## Design Choices
 
 - **Everything stays on your machine.** Your prompts never leave your Mac. Zero network requests in the entire codebase — no analytics, no telemetry, no update checks. You can verify: search the source for `URLSession` — it's not there.
 
 - **No interruptions.** No notifications, no "rate this app" prompts, minimal onboarding, no update nags. You open it, you use it, it gets out of your way.
 
-- **Native macOS, not Electron.** Built with SwiftUI and SwiftData. No web views, no bundled browser. The app is 640 KB.
+- **Native macOS, not Electron.** Built with SwiftUI and SwiftData. No web views, no bundled browser.
 
 - **Accessibility permission — and nothing more.** Hodor uses macOS Accessibility APIs to paste into other apps — the same approach as Raycast and Alfred. The source code is right here. You can see exactly what it does and what it doesn't.
 
@@ -41,7 +51,7 @@ All three get your prompt into the active text field — or onto your clipboard 
 
 ## Install
 
-Download the latest DMG from **[hodor.design](https://hodor.design)**. Requires macOS 26 or later.
+Download the latest DMG from **[hodor.design](https://hodor.design)** or the **[GitHub Releases](https://github.com/woody-design/hodor/releases)** page.
 
 ## FAQ
 
@@ -67,7 +77,7 @@ This is a known conflict. If you switch between input languages, macOS may alrea
 
 ### Where is my data stored?
 
-All prompts are stored locally on your Mac using SwiftData, in `~/Library/Application Support/default.store`. Nothing is synced, uploaded, or sent anywhere.
+All prompts are stored locally on your Mac using SwiftData, in `~/Library/Application Support/Hodor/Hodor.store`. Nothing is synced, uploaded, or sent anywhere.
 
 ## Why I Built This
 
