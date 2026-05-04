@@ -61,5 +61,5 @@ private func permissionCheckCallback(
     event: CGEvent,
     userInfo: UnsafeMutableRawPointer?
 ) -> Unmanaged<CGEvent>? {
-    Unmanaged.passRetained(event)
+    Unmanaged.passUnretained(event)
 }

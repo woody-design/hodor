@@ -1,18 +1,26 @@
 import AppKit
 import SwiftData
 import CoreGraphics
+import os.log
 
 /// Handles the clipboard write + simulated Cmd+V paste flow.
 @MainActor
 final class AutoPasteService {
     static let shared = AutoPasteService()
 
+    private let logger = Logger(subsystem: "com.promptpal.mac", category: "AutoPasteService")
+
     private init() {}
 
     func pastePrompt(_ prompt: PromptNote, context: ModelContext) {
         prompt.useCount += 1
         prompt.lastUsedAt = Date()
-        try? context.save()
+        do {
+            try context.save()
+        } catch {
+            logger.error("Failed to save prompt usage metadata: \(error.localizedDescription)")
+            context.rollback()
+        }
 
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString(prompt.body, forType: .string)

@@ -37,7 +37,7 @@ struct ButtonAddView: View {
         if recordingMode {
             content
         } else {
-            content.glassEffect(.regular.interactive(), in: Capsule())
+            content.hodorSurface(.interactiveControl, in: Capsule())
         }
     }
 }

@@ -9,7 +9,7 @@ struct ToastView: View {
     @AppStorage("recordingMode") private var recordingMode = false
 
     var body: some View {
-        HStack(alignment: .top, spacing: 8) {
+        let content = HStack(alignment: .top, spacing: 8) {
             VStack(alignment: .leading, spacing: 4) {
                 Text(title)
                     .font(.system(size: 13, weight: .bold))
@@ -32,15 +32,16 @@ struct ToastView: View {
         }
         .padding(16)
         .frame(width: 222)
-        .background {
-            if recordingMode {
-                Color.white.opacity(0.75)
-                    .clipShape(.rect(cornerRadius: 12))
-            } else {
-                Color.clear
-                    .glassEffect(.regular, in: .rect(cornerRadius: 12))
-            }
+
+        if recordingMode {
+            content
+                .background {
+                    Color.white.opacity(0.75)
+                        .clipShape(.rect(cornerRadius: 12))
+                }
+                .clipShape(.rect(cornerRadius: 12))
+        } else {
+            content.hodorSurface(.toast, in: .rect(cornerRadius: 12))
         }
-        .clipShape(.rect(cornerRadius: 12))
     }
 }

@@ -10,6 +10,7 @@
 		06A99CDACE272161BD2E2DB7 /* SortMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AF0D3311A603AB0E2671CD /* SortMode.swift */; };
 		158F5F9F354FA87E23FBB1A3 /* PromptFormMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45DB8542FBC4CAEEF4E1F98 /* PromptFormMode.swift */; };
 		1CAB2FE6A7DCF2D5CA125F70 /* ToastWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66E5EFE73F4902C6A35C729 /* ToastWindow.swift */; };
+		2B73A88F12C7F0C943D04BA7 /* PromptBackupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A975AF7854182323BC713AE5 /* PromptBackupService.swift */; };
 		328DA95D3E639E33FD76BC64 /* DimmingWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE605308C4022F272DA3EF8 /* DimmingWindow.swift */; };
 		38846D9C7C818876A2FF8B3F /* PromptPalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A091991ADA722FAEA3B62B /* PromptPalApp.swift */; };
 		3ADA191C725192F949683609 /* SidebarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDED9CC94C3D7BCC9A284E3A /* SidebarManager.swift */; };
@@ -26,8 +27,10 @@
 		93B6BC6C14D751730D9AED97 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3E02C16751F0E448B8E703 /* SettingsView.swift */; };
 		987339E33B737CE59F7E22FD /* PromptNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8507579C71364428CD4306 /* PromptNote.swift */; };
 		9B44519DBB701DCBFF5D09E8 /* OnboardingWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE4061B5025AF3E5936DB3F /* OnboardingWindow.swift */; };
+		A49282D2A9F9CF5CB1296E26 /* HodorSurface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD0E8B1CF18C26A8A633885 /* HodorSurface.swift */; };
 		B1938A9E5D3910D82ED3CED0 /* DialogWindowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4027196766D917BE2132AEB /* DialogWindowDelegate.swift */; };
 		B4BD6B9549C9690A6AFFE6A8 /* SeedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73A60204594D4F83E88EF34 /* SeedData.swift */; };
+		C844A8E367D931F4F34F8BDF /* PromptStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CF90B8F112806056B664CF /* PromptStorageService.swift */; };
 		C8AD3708151B4268958CD3CD /* PermissionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81576AC545C6A92D5E53B87F /* PermissionService.swift */; };
 		CAEB1331BDA92389386B470E /* SidebarPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B2AEC37804B43B7354E633 /* SidebarPanel.swift */; };
 		CF7C59927F8E8FDCE503A250 /* PromptFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A060F6F5CBBBFC7B4EE227 /* PromptFormView.swift */; };
@@ -49,12 +52,14 @@
 		51CBD92C90761F09E0A76DC1 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		6663DD244C0DD3DD17808E49 /* SidebarContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarContentView.swift; sourceTree = "<group>"; };
 		6D9EF1BF4A16AE8C4BADCCAF /* PreviousAppTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousAppTracker.swift; sourceTree = "<group>"; };
+		7DD0E8B1CF18C26A8A633885 /* HodorSurface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HodorSurface.swift; sourceTree = "<group>"; };
 		81576AC545C6A92D5E53B87F /* PermissionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionService.swift; sourceTree = "<group>"; };
 		84DF93AACE225217B6AFCCAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8506EC80D7D70B741C38120A /* PromptPal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PromptPal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F63A97342154F42AD5C4C44 /* ButtonAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonAddView.swift; sourceTree = "<group>"; };
 		92B2AEC37804B43B7354E633 /* SidebarPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarPanel.swift; sourceTree = "<group>"; };
 		A1AF0D3311A603AB0E2671CD /* SortMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortMode.swift; sourceTree = "<group>"; };
+		A975AF7854182323BC713AE5 /* PromptBackupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptBackupService.swift; sourceTree = "<group>"; };
 		BDED9CC94C3D7BCC9A284E3A /* SidebarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarManager.swift; sourceTree = "<group>"; };
 		C7A091991ADA722FAEA3B62B /* PromptPalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptPalApp.swift; sourceTree = "<group>"; };
 		CB73E1F9C1ED13798B35D83A /* HodorIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = wrapper.icon; path = HodorIcon.icon; sourceTree = "<group>"; };
@@ -62,6 +67,7 @@
 		CF8507579C71364428CD4306 /* PromptNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptNote.swift; sourceTree = "<group>"; };
 		D4027196766D917BE2132AEB /* DialogWindowDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogWindowDelegate.swift; sourceTree = "<group>"; };
 		D73A60204594D4F83E88EF34 /* SeedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedData.swift; sourceTree = "<group>"; };
+		D8CF90B8F112806056B664CF /* PromptStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptStorageService.swift; sourceTree = "<group>"; };
 		E45DB8542FBC4CAEEF4E1F98 /* PromptFormMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptFormMode.swift; sourceTree = "<group>"; };
 		E66E5EFE73F4902C6A35C729 /* ToastWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastWindow.swift; sourceTree = "<group>"; };
 		ECE4061B5025AF3E5936DB3F /* OnboardingWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingWindow.swift; sourceTree = "<group>"; };
@@ -77,10 +83,20 @@
 				518358360BCAD476B1F186F6 /* HotkeyService.swift */,
 				81576AC545C6A92D5E53B87F /* PermissionService.swift */,
 				6D9EF1BF4A16AE8C4BADCCAF /* PreviousAppTracker.swift */,
+				A975AF7854182323BC713AE5 /* PromptBackupService.swift */,
+				D8CF90B8F112806056B664CF /* PromptStorageService.swift */,
 				2886E6C6180FC26665869BD4 /* ScreenEdgeTriggerService.swift */,
 				BDED9CC94C3D7BCC9A284E3A /* SidebarManager.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		08D937746BE221DDCABEFAB9 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				7DD0E8B1CF18C26A8A633885 /* HodorSurface.swift */,
+			);
+			path = Support;
 			sourceTree = "<group>";
 		};
 		21061D6B2CC609994E651153 /* Components */ = {
@@ -121,6 +137,7 @@
 			children = (
 				21061D6B2CC609994E651153 /* Components */,
 				BCCC18F2DBEB34E3610B509C /* Screens */,
+				08D937746BE221DDCABEFAB9 /* Support */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -246,16 +263,19 @@
 				B1938A9E5D3910D82ED3CED0 /* DialogWindowDelegate.swift in Sources */,
 				328DA95D3E639E33FD76BC64 /* DimmingWindow.swift in Sources */,
 				E308BF04A8CE35A7615D3818 /* HeaderView.swift in Sources */,
+				A49282D2A9F9CF5CB1296E26 /* HodorSurface.swift in Sources */,
 				74655E2FFFF2743BFBD45C46 /* HotkeyService.swift in Sources */,
 				54AD5117867A8EEE5A41E7E3 /* OnboardingView.swift in Sources */,
 				9B44519DBB701DCBFF5D09E8 /* OnboardingWindow.swift in Sources */,
 				C8AD3708151B4268958CD3CD /* PermissionService.swift in Sources */,
 				8CDAF1C91A7DF7D929316788 /* PreviousAppTracker.swift in Sources */,
+				2B73A88F12C7F0C943D04BA7 /* PromptBackupService.swift in Sources */,
 				4788C3E341B97A7B5D059D14 /* PromptCardView.swift in Sources */,
 				158F5F9F354FA87E23FBB1A3 /* PromptFormMode.swift in Sources */,
 				CF7C59927F8E8FDCE503A250 /* PromptFormView.swift in Sources */,
 				987339E33B737CE59F7E22FD /* PromptNote.swift in Sources */,
 				38846D9C7C818876A2FF8B3F /* PromptPalApp.swift in Sources */,
+				C844A8E367D931F4F34F8BDF /* PromptStorageService.swift in Sources */,
 				E48EDCEE2B191ED8D1E9281C /* ScreenEdgeTriggerService.swift in Sources */,
 				B4BD6B9549C9690A6AFFE6A8 /* SeedData.swift in Sources */,
 				93B6BC6C14D751730D9AED97 /* SettingsView.swift in Sources */,
@@ -317,7 +337,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -336,7 +356,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 11;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = Resources/Info.plist;
@@ -344,8 +364,8 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 26.0;
-				MARKETING_VERSION = 1.0.0;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hodor.design;
 				PRODUCT_NAME = Hodor;
 				SDKROOT = macosx;
@@ -361,7 +381,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 11;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = Resources/Info.plist;
@@ -369,8 +389,8 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 26.0;
-				MARKETING_VERSION = 1.0.0;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hodor.design;
 				PRODUCT_NAME = Hodor;
 				SDKROOT = macosx;
@@ -429,7 +449,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;

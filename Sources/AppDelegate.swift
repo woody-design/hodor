@@ -3,6 +3,7 @@ import Combine
 import CoreGraphics
 import SwiftUI
 import SwiftData
+import os.log
 
 @MainActor
 final class AppDelegate: NSObject, NSApplicationDelegate {
@@ -24,10 +25,12 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
     private var cancellables = Set<AnyCancellable>()
     private var operationStarted = false
+    private let logger = Logger(subsystem: "com.promptpal.mac", category: "AppDelegate")
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         Self.shared = self
         NSApp.setActivationPolicy(.regular)
+        _ = PreviousAppTracker.shared
 
         registerDefaults()
         setupModelContainer()
@@ -45,16 +48,41 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         false
     }
 
-    /// When user clicks Dock icon or Cmd+Tab to the app
+    /// When user clicks the Dock icon to reopen the app.
     func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
         if let onboarding = onboardingWindow, onboarding.isVisible {
             onboarding.makeKeyAndOrderFront(nil)
             NSApp.activate()
             return false
         }
-        SidebarManager.shared.toggle()
-        PreviousAppTracker.shared.restoreFocus()
+        if let settings = settingsWindow, settings.isVisible {
+            settings.makeKeyAndOrderFront(nil)
+            NSApp.activate()
+            return false
+        }
+        if let promptForm = promptFormWindow, promptForm.isVisible {
+            promptForm.makeKeyAndOrderFront(nil)
+            NSApp.activate()
+            return false
+        }
+        guard operationStarted else {
+            NSApp.activate()
+            return false
+        }
+        NSApp.activate()
+        SidebarManager.shared.show()
         return false
+    }
+
+    func applicationDockMenu(_ sender: NSApplication) -> NSMenu? {
+        let menu = NSMenu()
+        let settingsItem = menu.addItem(
+            withTitle: "Settings…",
+            action: #selector(showSettingsFromMenu),
+            keyEquivalent: ""
+        )
+        settingsItem.target = self
+        return menu
     }
 
     // MARK: - Setup
@@ -68,7 +96,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
     private func setupModelContainer() {
         do {
-            modelContainer = try ModelContainer(for: PromptNote.self)
+            modelContainer = try PromptStorageService.shared.makeModelContainer()
         } catch {
             fatalError("Failed to create ModelContainer: \(error)")
         }
@@ -142,7 +170,9 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         setupMenuBarIcon()
         setupSidebarPanel()
         observeSidebarVisibility()
+        restorePromptLibraryIfNeeded()
         seedDataIfNeeded()
+        capturePromptBackupIfNeeded()
         startHotkeyService()
         ScreenEdgeTriggerService.shared.start()
 
@@ -251,11 +281,28 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     @objc private func showSettingsFromMenu() {
-        showSettings()
+        openSettingsFromUserAction()
     }
 
     @objc private func quitApp() {
         NSApp.terminate(nil)
+    }
+
+    func openSettingsFromCommand() {
+        openSettingsFromUserAction()
+    }
+
+    private func openSettingsFromUserAction() {
+        if let onboarding = onboardingWindow, onboarding.isVisible {
+            onboarding.makeKeyAndOrderFront(nil)
+            NSApp.activate()
+            return
+        }
+        guard operationStarted else {
+            NSApp.activate()
+            return
+        }
+        showSettings()
     }
 
     private func observeSidebarVisibility() {
@@ -373,7 +420,21 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
     private func seedDataIfNeeded() {
         guard let container = modelContainer else { return }
-        SeedData.seedIfNeeded(context: container.mainContext)
+        do {
+            try SeedData.seedIfNeeded(context: container.mainContext)
+        } catch {
+            logger.error("Failed to seed starter prompts: \(error.localizedDescription)")
+        }
+    }
+
+    private func restorePromptLibraryIfNeeded() {
+        guard let container = modelContainer else { return }
+        PromptBackupService.shared.restoreIfNeeded(context: container.mainContext)
+    }
+
+    private func capturePromptBackupIfNeeded() {
+        guard let container = modelContainer else { return }
+        PromptBackupService.shared.captureCurrentLibraryIfPresent(context: container.mainContext)
     }
 
     private func startHotkeyService() {

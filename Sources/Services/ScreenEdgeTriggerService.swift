@@ -7,6 +7,9 @@ final class ScreenEdgeTriggerService {
     static let shared = ScreenEdgeTriggerService()
 
     private static let dwellDelay: TimeInterval = 0.2
+    private static let outerEdgeWidth: CGFloat = 3
+    private static let sharedEdgeWidth: CGFloat = 12
+    private static let sharedEdgeTolerance: CGFloat = 1
 
     private var monitor: Any?
     private var dwellWork: DispatchWorkItem?
@@ -34,20 +37,37 @@ final class ScreenEdgeTriggerService {
     // MARK: - Detection
 
     private func handleMouseMoved() {
-        guard UserDefaults.standard.bool(forKey: "screenEdgeTriggerEnabled") else { return }
-        guard !SidebarManager.shared.isVisible else { return }
+        guard UserDefaults.standard.bool(forKey: "screenEdgeTriggerEnabled") else {
+            cancelDwell()
+            armed = true
+            return
+        }
+        guard !SidebarManager.shared.isVisible else {
+            cancelDwell()
+            return
+        }
 
-        let mouseX = NSEvent.mouseLocation.x
+        let mouseLocation = NSEvent.mouseLocation
         let screen = SidebarManager.shared.resolvedScreen()
         let frame = screen.frame
-
+        let insideVerticalRange = mouseLocation.y >= frame.minY && mouseLocation.y <= frame.maxY
         let position = SidebarManager.shared.currentSidebarPosition()
+        let edgeWidth = triggerWidth(
+            for: position,
+            screen: screen,
+            mouseY: mouseLocation.y
+        )
+
         let atEdge: Bool
         switch position {
         case .left:
-            atEdge = mouseX <= frame.minX + 1
+            atEdge = insideVerticalRange
+                && mouseLocation.x >= frame.minX
+                && mouseLocation.x <= frame.minX + edgeWidth
         case .right:
-            atEdge = mouseX >= frame.maxX - 1
+            atEdge = insideVerticalRange
+                && mouseLocation.x <= frame.maxX
+                && mouseLocation.x >= frame.maxX - edgeWidth
         }
 
         if atEdge {
@@ -76,5 +96,42 @@ final class ScreenEdgeTriggerService {
     private func cancelDwell() {
         dwellWork?.cancel()
         dwellWork = nil
+    }
+
+    private func triggerWidth(for position: SidebarPosition, screen: NSScreen, mouseY: CGFloat) -> CGFloat {
+        sharesEdgeWithAnotherScreen(position: position, screen: screen, mouseY: mouseY)
+            ? Self.sharedEdgeWidth
+            : Self.outerEdgeWidth
+    }
+
+    private func sharesEdgeWithAnotherScreen(position: SidebarPosition, screen: NSScreen, mouseY: CGFloat) -> Bool {
+        let frame = screen.frame
+
+        for other in NSScreen.screens where other !== screen {
+            let otherFrame = other.frame
+            guard verticalRangesOverlap(frame, otherFrame),
+                  mouseY >= max(frame.minY, otherFrame.minY),
+                  mouseY <= min(frame.maxY, otherFrame.maxY)
+            else {
+                continue
+            }
+
+            switch position {
+            case .left:
+                if abs(otherFrame.maxX - frame.minX) <= Self.sharedEdgeTolerance {
+                    return true
+                }
+            case .right:
+                if abs(otherFrame.minX - frame.maxX) <= Self.sharedEdgeTolerance {
+                    return true
+                }
+            }
+        }
+
+        return false
+    }
+
+    private func verticalRangesOverlap(_ lhs: NSRect, _ rhs: NSRect) -> Bool {
+        max(lhs.minY, rhs.minY) < min(lhs.maxY, rhs.maxY)
     }
 }

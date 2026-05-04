@@ -33,12 +33,17 @@ final class SidebarManager: ObservableObject {
 
     func show() {
         guard let panel else { return }
-        PreviousAppTracker.shared.snapshot()
+        let wasVisible = isVisible
+        if !wasVisible {
+            PreviousAppTracker.shared.snapshot()
+        }
 
         panel.updateFrame(position: currentSidebarPosition(), screen: resolvedScreen())
         panel.orderFront(nil)
         isVisible = true
-        installClickMonitors()
+        if !wasVisible {
+            installClickMonitors()
+        }
     }
 
     func dismiss() {

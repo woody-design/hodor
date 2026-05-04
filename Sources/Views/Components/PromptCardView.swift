@@ -46,7 +46,7 @@ struct PromptCardView: View {
         if recordingMode {
             content
         } else {
-            content.glassEffect(.regular.interactive(), in: .rect(cornerRadius: 12))
+            content.hodorSurface(.interactiveControl, in: .rect(cornerRadius: 12))
         }
     }
 

@@ -8,5 +8,15 @@ struct PromptPalApp: App {
         Settings {
             EmptyView()
         }
+        .commands {
+            CommandGroup(replacing: .appSettings) {
+                Button("Settings…") {
+                    Task { @MainActor in
+                        AppDelegate.shared?.openSettingsFromCommand()
+                    }
+                }
+                .keyboardShortcut(",", modifiers: .command)
+            }
+        }
     }
 }

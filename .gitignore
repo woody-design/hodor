@@ -1,26 +1,67 @@
 # macOS
 .DS_Store
+.AppleDouble
+.LSOverride
+Icon?
 ._*
 
 # Xcode
 build/
 DerivedData/
 *.xcuserstate
-xcuserdata/
+*.xcworkspace/xcuserdata/
 *.pbxuser
 *.mode1v3
 *.mode2v3
 *.perspectivev3
+xcuserdata/
 
 # Swift Package Manager
 .build/
-.swiftpm/
+Packages/
 Package.resolved
+
+# CocoaPods
+Pods/
 
 # Local developer config (signing, team ID)
 Local.xcconfig
 
-# Editor / AI
+# Local environment / secrets
+.env
+.env.*
+!.env.example
+*.p8
+*.p12
+*.pem
+*.key
+*.mobileprovision
+*.provisionprofile
+secrets/
+gitleaks-report.*
+
+# Claude Code
 .claude/
+
+# Xcode Swift Package Manager state
+.swiftpm/
+
+# Cursor
 .cursor/
-.vscode/
+
+# Distribution output
+distribution/Hodor.dmg
+distribution/Hodor.dmg.sha256
+distribution/build/
+
+# Website binary (deployed via wrangler, not git)
+website/Hodor.dmg
+website/Hodor.dmg.sha256
+
+# Cloudflare Wrangler
+.wrangler/
+
+# Misc
+*.swp
+*.swo
+*~

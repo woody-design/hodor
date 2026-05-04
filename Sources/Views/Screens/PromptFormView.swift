@@ -281,8 +281,15 @@ struct PromptFormView: View {
             modelContext.insert(note)
         }
 
-        try? modelContext.save()
-        closeWindow()
+        do {
+            try modelContext.save()
+            PromptBackupService.shared.recordUserLibrarySave(context: modelContext)
+            HotkeyService.shared.refreshShortcutCache()
+            closeWindow()
+        } catch {
+            modelContext.rollback()
+            showPersistenceError(title: "Could not save prompt", error: error)
+        }
     }
 
     private func validate() -> Bool {
@@ -355,13 +362,34 @@ struct PromptFormView: View {
         alert.beginSheetModal(for: window) { response in
             if response == .alertFirstButtonReturn {
                 self.modelContext.delete(note)
-                try? self.modelContext.save()
-                window.close()
+                do {
+                    try self.modelContext.save()
+                    PromptBackupService.shared.recordUserLibrarySave(context: self.modelContext)
+                    HotkeyService.shared.refreshShortcutCache()
+                    window.close()
+                } catch {
+                    self.modelContext.rollback()
+                    self.showPersistenceError(title: "Could not delete prompt", error: error)
+                }
             }
         }
     }
 
     private func closeWindow() {
         NSApp.keyWindow?.close()
+    }
+
+    private func showPersistenceError(title: String, error: Error) {
+        let alert = NSAlert()
+        alert.alertStyle = .warning
+        alert.messageText = title
+        alert.informativeText = "Your changes were not saved. \(error.localizedDescription)"
+        alert.addButton(withTitle: "OK")
+
+        if let window = NSApp.keyWindow {
+            alert.beginSheetModal(for: window)
+        } else {
+            alert.runModal()
+        }
     }
 }

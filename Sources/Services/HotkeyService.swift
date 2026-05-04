@@ -12,6 +12,7 @@ final class HotkeyService {
     static let shared = HotkeyService()
 
     nonisolated(unsafe) var eventTap: CFMachPort?
+    nonisolated(unsafe) private var assignedShortcutLetters: Set<String> = []
     private var runLoopSource: CFRunLoopSource?
     private var snippetBuffer: String = ""
     private var snippetTimer: Timer?
@@ -23,6 +24,7 @@ final class HotkeyService {
 
     func start(container: ModelContainer) {
         self.modelContainer = container
+        refreshShortcutCache()
         installEventTap()
     }
 
@@ -65,6 +67,25 @@ final class HotkeyService {
         logger.info("CGEventTap installed successfully")
         return true
     }
+
+    func refreshShortcutCache() {
+        guard let container = modelContainer else {
+            assignedShortcutLetters = []
+            return
+        }
+
+        let descriptor = FetchDescriptor<PromptNote>()
+        do {
+            let prompts = try container.mainContext.fetch(descriptor)
+            assignedShortcutLetters = Set(prompts.compactMap(\.normalizedShortcutLetter))
+        } catch {
+            logger.error("Failed to refresh shortcut cache: \(error.localizedDescription)")
+        }
+    }
+
+    nonisolated func isShortcutAssigned(letter: String) -> Bool {
+        assignedShortcutLetters.contains(letter)
+    }
 }
 
 // MARK: - CGEventTap Callback (C function)
@@ -82,13 +103,13 @@ private func hotkeyCallback(
                 CGEvent.tapEnable(tap: tap, enable: true)
             }
         }
-        return Unmanaged.passRetained(event)
+        return Unmanaged.passUnretained(event)
     }
 
     let startTime = CFAbsoluteTimeGetCurrent()
 
     guard type == .keyDown else {
-        return Unmanaged.passRetained(event)
+        return Unmanaged.passUnretained(event)
     }
 
     let flags = event.flags
@@ -117,8 +138,16 @@ private func hotkeyCallback(
     if flags.contains(requiredShortcutFlags) && !flags.contains(.maskCommand) && !flags.contains(.maskShift) {
         if keyCode >= 0 && keyCode <= 50 {
             if let letter = keyCodeToLetter(Int(keyCode)) {
+                guard let refcon else {
+                    return Unmanaged.passUnretained(event)
+                }
+                let service = Unmanaged<HotkeyService>.fromOpaque(refcon).takeUnretainedValue()
+                guard service.isShortcutAssigned(letter: letter) else {
+                    return Unmanaged.passUnretained(event)
+                }
+
                 Task { @MainActor in
-                    HotkeyService.shared.handlePerPromptShortcut(letter: letter)
+                    service.handlePerPromptShortcut(letter: letter)
                 }
                 let elapsed = (CFAbsoluteTimeGetCurrent() - startTime) * 1000
                 if elapsed > 10 {
@@ -136,7 +165,7 @@ private func hotkeyCallback(
         Task { @MainActor in
             HotkeyService.shared.resetSnippetBuffer()
         }
-        return Unmanaged.passRetained(event)
+        return Unmanaged.passUnretained(event)
     }
 
     // Check for buffer-resetting keys
@@ -150,7 +179,7 @@ private func hotkeyCallback(
         Task { @MainActor in
             HotkeyService.shared.resetSnippetBuffer()
         }
-        return Unmanaged.passRetained(event)
+        return Unmanaged.passUnretained(event)
     }
 
     // Backspace removes last character from buffer
@@ -158,7 +187,7 @@ private func hotkeyCallback(
         Task { @MainActor in
             HotkeyService.shared.handleBackspace()
         }
-        return Unmanaged.passRetained(event)
+        return Unmanaged.passUnretained(event)
     }
 
     // Regular character — convert CGEvent to NSEvent to get characters
@@ -174,7 +203,7 @@ private func hotkeyCallback(
         logger.warning("Callback took \(elapsed, format: .fixed(precision: 1))ms")
     }
 
-    return Unmanaged.passRetained(event)
+    return Unmanaged.passUnretained(event)
 }
 
 /// Maps virtual key codes to uppercase letter characters.
@@ -199,14 +228,17 @@ extension HotkeyService {
 
         let descriptor = FetchDescriptor<PromptNote>()
         guard let prompts = try? context.fetch(descriptor) else { return }
-        guard let match = prompts.first(where: { $0.shortcutLetter == letter }) else { return }
+        guard let match = prompts.first(where: { $0.normalizedShortcutLetter == letter }) else {
+            refreshShortcutCache()
+            return
+        }
 
         AutoPasteService.shared.pastePrompt(match, context: context)
     }
 
     func appendToSnippetBuffer(_ chars: String) {
         // Suppress when own windows are key
-        if NSApp.keyWindow != nil && !(NSApp.keyWindow is SidebarPanel) {
+        if NSApp.keyWindow != nil {
             resetSnippetBuffer()
             return
         }

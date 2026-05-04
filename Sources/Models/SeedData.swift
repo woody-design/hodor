@@ -5,7 +5,7 @@ enum SeedData {
     static let hasSeededKey = "com.hodor.hasSeeded"
 
     @MainActor
-    static func seedIfNeeded(context: ModelContext) {
+    static func seedIfNeeded(context: ModelContext) throws {
         guard !UserDefaults.standard.bool(forKey: hasSeededKey) else { return }
 
         let examples = [
@@ -37,6 +37,13 @@ enum SeedData {
 
         for example in examples {
             context.insert(example)
+        }
+
+        do {
+            try context.save()
+        } catch {
+            context.rollback()
+            throw error
         }
 
         UserDefaults.standard.set(true, forKey: hasSeededKey)

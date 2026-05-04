@@ -33,7 +33,7 @@ struct HeaderView: View {
         if recordingMode {
             content.background(Color.primary.opacity(0.06), in: Capsule())
         } else {
-            content.glassEffect(.regular, in: Capsule())
+            content.hodorSurface(.control, in: Capsule())
         }
     }
 
@@ -65,7 +65,7 @@ struct HeaderView: View {
                 .fixedSize()
         } else {
             label
-                .glassEffect(.regular, in: Capsule())
+                .hodorSurface(.control, in: Capsule())
                 .overlay {
                     SortPopUpButton(
                         sortModeRaw: $sortModeRaw,

@@ -34,10 +34,10 @@ struct SidebarContentView: View {
                     .background(Color.white.opacity(0.75), in: sidebarShape)
                     .clipShape(sidebarShape)
             } else {
-                GlassEffectContainer {
+                HodorSurfaceContainer {
                     promptListSection
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .glassEffect(.regular, in: sidebarShape)
+                        .hodorSurface(.sidebar, in: sidebarShape)
                 }
                 .clipShape(sidebarShape)
             }
