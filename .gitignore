@@ -52,11 +52,15 @@ gitleaks-report.*
 # Distribution output
 distribution/Hodor.dmg
 distribution/Hodor.dmg.sha256
+distribution/Hodor-*.dmg
+distribution/Hodor-*.dmg.sha256
 distribution/build/
 
 # Website binary (deployed via wrangler, not git)
 website/Hodor.dmg
 website/Hodor.dmg.sha256
+website/Hodor-*.dmg
+website/Hodor-*.dmg.sha256
 
 # Cloudflare Wrangler
 .wrangler/
